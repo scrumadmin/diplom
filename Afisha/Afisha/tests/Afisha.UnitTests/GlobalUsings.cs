@@ -1,0 +1,9 @@
+﻿global using System.Runtime.CompilerServices;
+global using Afisha.Core.ContributorAggregate;
+global using Afisha.UseCases.Contributors.Create;
+global using Ardalis.SharedKernel;
+global using FluentAssertions;
+global using MediatR;
+global using Microsoft.Extensions.Logging;
+global using NSubstitute;
+global using Xunit;
