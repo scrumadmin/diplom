@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Afisha.Domain.Entities;
 
-namespace Afisha.Domain.Entities
+public class EntityBase<TKey> where TKey : struct
 {
-    public class EntityBase<TKey> where TKey : struct
-    {
-        public TKey Id { get; set; }
-    }
+    public TKey Id { get; set; }
 }
