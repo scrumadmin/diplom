@@ -3,18 +3,25 @@ using Afisha.Domain.Entities;
 
 public class UserRepository : IUserRepository
 {
-    User IUserRepository.GetById(Guid id)
+    private readonly ApplicationDbContext _context;
+
+    public UserRepository(ApplicationDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+
+    public User GetById(Guid id)
+    {
+        return _context.Users.Find(id);
     }
 
     public void Add(User user)
     {
-        throw new NotImplementedException();
+        _context.Users.Add(user);
     }
 
-    public void Save(User user)
+    public void Save()
     {
-        throw new NotImplementedException();
+        _context.SaveChanges();
     }
 }

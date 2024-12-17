@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Afisha.Application.Command;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Afisha.Web.Controllers;
 
-[Route("api/[controller]")]
 [ApiController]
+[Route("api/users")]
 public class UsersController : ControllerBase
 {
     public UsersController()
@@ -13,6 +14,14 @@ public class UsersController : ControllerBase
     [HttpPost("{userId}/events/{eventId}")]
     public IActionResult RegisterForEvent(Guid userId, Guid eventId)
     {
+        var command = new RegisterUserForEventCommand
+        {
+            UserId = userId,
+            EventId = eventId
+        };        
+
+        // send command
+
         return Ok();
     }
 }
