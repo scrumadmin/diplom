@@ -9,7 +9,7 @@ namespace Afisha.Application.Services
         public async Task<User> SomeActionAsync()
         {
             await Task.Delay(1);
-            return new User {Id = 1, UserName = "TEST" };
+            return new User {Id = 1, Login = "TEST" };
         }
     }
 }

@@ -1,9 +1,9 @@
 @Afisha.Web_HostAddress = http://localhost:5182
 
-GET {{Afisha.Web_HostAddress}}/usersomeaction/
+GET {{Afisha.Web_HostAddress}}/swagger/v1/swagger.json/
 Accept: application/json
 
-GET {{Afisha.Web_HostAddress}}/usersomeaction/
+GET {{Afisha.Web_HostAddress}}/swagger/v1/swagger.json/
 Accept: application/json
 
 ###
