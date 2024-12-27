@@ -1,5 +1,6 @@
 using System.Reflection;
 using Afisha.Web.Infrastructure.Configuration;
+using Afisha.Web.Middleware;
 using Asp.Versioning;
 using Microsoft.OpenApi.Models;
 
@@ -45,6 +46,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware<GlobalExceptionHandler>();
 app.MapControllers();
 
 app.Run();
