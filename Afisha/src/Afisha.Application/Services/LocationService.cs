@@ -1,10 +1,11 @@
 using Afisha.Application.Contracts.Repositories;
+using Afisha.Application.Specifications;
 using Afisha.Domain.Contracts;
 using Afisha.Domain.Entities;
 
 namespace Afisha.Application.Services;
 
-public class LocationService(ILocationRepository locationRepository) : ILocationService
+public class LocationService(ILocationRepository locationRepository, IRepository<Location> repository2) : ILocationService
 {
     /// <summary>
     ///     Получение общей информации о локации по идентификатору
@@ -30,5 +31,10 @@ public class LocationService(ILocationRepository locationRepository) : ILocation
             return addedLocation;
 
         throw new Exception("Не удалось добавить локацию");
+    }
+
+    public async Task<List<Location>> GetLocationsByOwnerAsync(long ownerId, CancellationToken cancellationToken)
+    {
+        return await repository2.ListAsync(new GetLocationByOwnerSpecification(ownerId), cancellationToken);
     }
 }

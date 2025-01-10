@@ -2,6 +2,7 @@
 using Afisha.Application.Contracts.Repositories;
 using Afisha.Application.Services;
 using Afisha.Domain.Contracts;
+using Afisha.Domain.Entities;
 using Afisha.Infrastructure.Data;
 using Afisha.Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ public static class ConfigureCoreServices
         services.AddSingleton<IUserSomeActionService, UserSomeActionService>();
         services.AddTransient<ILocationService, LocationService>();
         services.AddTransient<ILocationRepository, LocationRepository>();
+        services.AddTransient(typeof(IRepository<>), typeof(RepositoryBase<>));
         return services;
     }
 

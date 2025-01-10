@@ -24,4 +24,12 @@ public class LocationController(ILocationService locationService) : ControllerBa
         var result = await locationService.CreateLocation(newLocation, ownerId, HttpContext.RequestAborted);
         return result;
     }
+
+    [HttpGet]
+    [Route("byOwner")]
+    public async Task<List<Location>> LocationByOuner([FromQuery] long owner)
+    {
+        var result = await locationService.GetLocationsByOwnerAsync(owner, HttpContext.RequestAborted);
+        return result;
+    }
 }

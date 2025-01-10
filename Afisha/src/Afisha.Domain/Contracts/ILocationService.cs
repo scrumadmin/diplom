@@ -13,4 +13,6 @@ public interface ILocationService
     ///     Создание новой локации
     /// </summary>
     Task<Location> CreateLocation(Location location, long ownerId, CancellationToken cancellationToken);
+
+    Task<List<Location>> GetLocationsByOwnerAsync(long ownerId, CancellationToken cancellationToken);
 }
